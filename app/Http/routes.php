@@ -39,3 +39,7 @@ Route::post('contact','ContactController@store');
 
 
 Route::get('tags/{tags}','TagController@show');
+
+Route::get('cv','CvController@index');
+Route::get('cv/upload','CvController@upload');
+Route::post('cv','CvController@store');

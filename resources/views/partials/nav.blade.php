@@ -11,9 +11,9 @@
         <a href="{{url('/')}}" class="navbar-brand">Piyush Sharma</a>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-            <ul class="nav navbar-nav navbar-left">
+            <!--ul class="nav navbar-nav navbar-left">
                 <li>{!! link_to_action('ArticlesController@show',$latest->title, [$latest->id]) !!}</li>
-            </ul>
+            </ul-->
 
             <ul class="nav navbar-nav navbar-right">
 
@@ -25,6 +25,9 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/articles/create') }}">Create Blog</a></li>
+                            <li><a href="{{ url('/portfolio/create') }}">Create Portfolio</a></li>
+                            <li><a href="{{ url('/cv/upload') }}">Upload CV</a></li>
                             <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
                         </ul>
                     </li>

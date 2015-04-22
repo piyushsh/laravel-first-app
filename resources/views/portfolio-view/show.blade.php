@@ -10,6 +10,10 @@
 
             </div>
         </div>
+
+        @if(Auth::check())
+            <p><a href="{{url('portfolio/'.$portfolio->id.'/edit')}}">Edit</a></p>
+        @endif
     </div>
 
 @stop

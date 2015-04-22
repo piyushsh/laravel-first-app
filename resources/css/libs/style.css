@@ -1,0 +1,259 @@
+@import url(http://fonts.googleapis.com/css?family=Tangerine:400,700);
+
+body
+{
+    background:rgba(0,0,0,0.95);
+    line-height: 200%;
+    font-family: 'Tangerine', cursive;
+    font-size: 20px;
+}
+
+section
+{
+    padding:50px 0px;
+}
+
+section .container
+{
+    max-width:100%;
+    width:100%;
+}
+
+p
+{
+    font-size: 28px;
+    font-family: 'Tangerine', cursive;
+    color:#FFFFFF;
+}
+
+p strong
+{
+    font-weight:700;
+    text-decoration: underline;
+}
+
+p a
+{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+h1,h2,h3,h4,h5
+{
+    margin:0px;
+    padding-bottom: 15px;
+    font-size:48px;
+    font-weight: 700;
+    color:#FFFFFF;
+}
+
+h3,h4
+{
+    font-size:36px;
+    padding-bottom:10px;
+}
+
+
+
+label
+{
+    color:#FFFFFF;
+}
+
+
+
+.alert-success
+{
+    background:none;
+    border:none;
+}
+
+
+
+
+
+header
+{
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    background:rgba(0,0,0,0.5);
+    box-shadow:1px 2px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow:1px 2px 5px rgba(0,0,0,0.75);
+    z-index:100;
+}
+
+header .navbar-default .navbar-brand,header .navbar-default .navbar-brand:hover
+{
+    font-family: 'Tangerine', cursive;
+    font-size: 36px;
+    color:#FFFFFF;
+}
+header a:hover
+{
+    opacity: 0.7 !important;
+    color:#FFFFFF;
+}
+
+header .navbar-default
+{
+    background:none;
+    border:none;
+    margin-bottom:0px;
+}
+header .navbar-default .navbar-nav > li > a,header .navbar-default .navbar-nav > li > a:hover
+{
+    color:#FFFFFF;
+    font-size: 20px;
+}
+
+
+footer
+{
+    margin-top:50px;
+    width:100%;
+    background:rgba(0,0,0,0.90);
+}
+
+footer .container a img
+{
+    max-width:50px;
+    max-height:50px;
+    width:auto;
+    heigth:auto;
+}
+
+.banner_container
+{
+    min-height:400px;
+    width:100%;
+    background:url('../../images/banner.jpg');
+    background-position: center;
+    background-size: cover;
+    color:#FFFFFF;
+    text-shadow: 0px 0px 5px rgba(0,0,0,1);
+    -moz-text-shadow: 0px 0px 5px rgba(0,0,0,1);
+}
+.banner_container .container
+{
+    padding:50px 15px;
+}
+
+.banner_container.other_pages
+{
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    z-index: -1;
+}
+
+.main_body_container
+{
+    margin-top:80px;
+    padding:10px;
+    //background:rgba(255,255,255,0.80);
+    width:50%;
+    min-width:1200px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:50px;
+    border-radius:10px;
+    -moz-border-radius:10px;
+}
+@media(max-width:1200px)
+{
+    .main_body_container
+    {
+        min-width:300px;
+    }
+}
+
+.main_body_container .container
+{
+    padding-top:10px;
+    padding-bottom:10px;
+    background:rgba(0,0,0,0.75);
+    border-radius:10px;
+    -moz-border-radius:10px;
+}
+
+
+
+/*Style for Blog articles*/
+.blog_articles
+{
+
+}
+
+.blog_articles .row
+{
+    margin-bottom: 25px;
+}
+
+.blog_articles .article
+{
+
+}
+.blog_articles .article > div
+{
+    padding:5px;
+    border:1px solid #99ee99;
+    margin-bottom: 15px;
+}
+.blog_articles .article > div:hover
+{
+    background:rgba(0,0,0,0.15);
+}
+
+.blog_articles .article > div .img-thumbnail
+{
+    min-height:100px;
+    min-width:200px;
+    width:100%;
+    height:100px;
+    background:rgba(0,0,0,0.90);
+}
+
+.blog_articles .article > div h2
+{
+    font-size:24px;
+}
+
+.blog_articles .article > div h3
+{
+    font-size: 28px;
+    padding-bottom: 5px;
+}
+.blog_articles .article > div p
+{
+    font-size: 24px;
+
+}
+
+
+
+
+.portfolio_container .portfolio
+{
+
+}
+.portfolio_container .portfolio > div
+{
+    padding:5px;
+    border-bottom:1px solid #1a1a1a;
+}
+
+.portfolio_container .portfolio > div .portofolio_image_container
+{
+    max-height:100px;
+    overflow: hidden;
+}
+
+.portfolio_container .portfolio > div .portofolio_image_container img
+{
+    min-width: 100%;
+    height:auto;
+}

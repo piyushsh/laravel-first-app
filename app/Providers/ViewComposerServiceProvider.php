@@ -23,6 +23,9 @@ class ViewComposerServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		//
+
+
+
 	}
 
     /**
@@ -36,5 +39,6 @@ class ViewComposerServiceProvider extends ServiceProvider {
 //            $view->with('latest', Article::latest()->first());
 //        });
     }
+
 
 }

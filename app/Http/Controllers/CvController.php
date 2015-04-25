@@ -9,10 +9,12 @@ use Illuminate\Support\Facades\Input;
 class CvController extends Controller {
 
     private $pathToCV;
+    private $fileName;
 
     public function __construct()
     {
-        $this->pathToCV=storage_path()."/cv/piyush_cv.doc";
+        $this->pathToCV="/cv/";
+        $this->fileName='piyush_cv.doc';
     }
 	/**
 	 * Display a listing of the resource.
@@ -21,7 +23,7 @@ class CvController extends Controller {
 	 */
 	public function index()
 	{
-        return response()->download($this->pathToCV);
+        return response()->download($this->pathToCV.$this->fileName);
 	}
 
 	/**
@@ -44,7 +46,7 @@ class CvController extends Controller {
         if($request->hasFile('cv'))
         {
             $file = $request->file('cv');
-            $file->move($this->pathToCV,'piyush_cv.doc');
+            $file->move($this->pathToCV,$this->fileName);
             return view('cv.thanks');
         }
         flash()->overlay('File was not selected','');

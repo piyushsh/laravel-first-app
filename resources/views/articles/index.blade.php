@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container blog_articles">
-    <h1>Articles</h1>
+    <h1>Blogs</h1>
 
 
         <?php $count=0;?>
@@ -12,7 +12,7 @@
             @endif
                 <div class="col-xs-12 col-lg-3 article">
                     <div>
-                        <img src="#" class="img-responsive img-thumbnail">
+                        <img src="{{asset($article->image_url)}}" class="img-responsive img-thumbnail">
                         <h2><!--a href="{{ action('ArticlesController@show', [$article->id]) }}">{{$article->title}}</a-->
                             <a href="{{url('/articles',$article->id)}}">{{$article->title}}</a></h2>
                         <p>{{$article->body}}</p>

@@ -13,9 +13,15 @@
     <div class="col-xs-12 col-lg-6">
 
         <div class="form-group">
-            {!! Form::label('url','URL: ') !!}
-            {!! Form::text('url',null, ['class'=>'form-control']) !!}
+            {!! Form::label('portfolio_url','URL: ') !!}
+            {!! Form::text('portfolio_url',null, ['class'=>'form-control']) !!}
         </div>
+
+        <div class="form-group">
+            {!! Form::label('image','URL: ') !!}
+            {!! Form::input('file','image',null, ['class'=>'form-control']) !!}
+        </div>
+
 
         <div class="form-group">
             {!! Form::label('deployed_date','Deployed Date: ') !!}

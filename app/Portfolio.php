@@ -11,7 +11,9 @@ class Portfolio extends Model {
         'url',
         'description',
         'deployed_date',
-        'published_at'
+        'published_at',
+        'portfolio_url',
+        'image_url'
     ];
 
     protected $dates = ['deployed_date','published_at'];

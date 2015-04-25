@@ -24,13 +24,13 @@ class RouteServiceProvider extends ServiceProvider {
 	{
 		parent::boot($router);
 
-        $router->model('articles', 'App\Article');
-
-        $router->model('portfolio','App\Portfolio');
-
-
+        //$router->model('articles', 'App\Article');
 
         $router->bind('articles',function($article_id){
+            return \App\Article::published()->findOrFail($article_id);
+        });
+
+        $router->bind('article_id',function($article_id){
             return \App\Article::published()->findOrFail($article_id);
         });
 
@@ -39,6 +39,9 @@ class RouteServiceProvider extends ServiceProvider {
         });
 
         $router->bind('portfolio',function($portfolio_id){
+            return \App\Portfolio::findOrFail($portfolio_id);
+        });
+        $router->bind('portfolio_id',function($portfolio_id){
             return \App\Portfolio::findOrFail($portfolio_id);
         });
 	}

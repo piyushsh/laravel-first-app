@@ -1,7 +1,13 @@
 <?php namespace App\Http\Controllers;
 
 use App\Article;
+
 use App\Portfolio;
+use App\Providers\ViewComposerServiceProvider;
+
+use App\Testinterface\TestInterface;
+use Illuminate\Support\Facades\View;
+
 
 class WelcomeController extends Controller {
 
@@ -16,14 +22,19 @@ class WelcomeController extends Controller {
 	|
 	*/
 
+    protected $interface;
+
 	/**
 	 * Create a new controller instance.
 	 *
 	 * @return void
 	 */
-	public function __construct()
+	public function __construct(TestInterface $interface)
 	{
+        //$this->viewComposerServiceProvider = $viewComposerServiceProvider;
 		//$this->middleware('guest', except[]);
+        $this->interface=$interface;
+        $this->interface->setName("Piyush Sharma");
 	}
 
 	/**
@@ -35,7 +46,9 @@ class WelcomeController extends Controller {
 	{
         $articles = Article::latest('published_at')->recentBlogs()->limit(3)->get();
         $portfolios = Portfolio::latest('published_at')->recentPortfolio()->limit(2)->get();
-		return view('welcome',compact('articles','portfolios'));
+        $interface=$this->interface;
+		return view('welcome',compact('articles','portfolios','testDependencyClass','interface'));
 	}
 
 }
+

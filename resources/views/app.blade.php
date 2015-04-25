@@ -27,7 +27,12 @@
         </div>
     </header>
 
-    <section class="banner_container other_pages">
+    <?php
+        $random = rand(1,3);
+        $class="banner".$random;
+    ?>
+
+    <section class="banner_container other_pages {{$class}}">
         <!--div class="container">
             <div class="row text-right">
                 <div class="col-xs-12 col-lg-6 col-lg-offset-6">
@@ -55,8 +60,8 @@
         //$('div.alert').not('.alert_important').delay(4000).slideUp(500);
     </script>
 
-    <section>
-        @yield('footer')
-    </section>
+    <footer>
+        @include('footer')
+    </footer>
 </body>
 </html>

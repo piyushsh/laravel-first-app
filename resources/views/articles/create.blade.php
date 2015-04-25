@@ -7,7 +7,7 @@
 
         <hr>
 
-        {!! Form::model($article = new \App\Article, ['url'=>'articles']) !!}
+        {!! Form::model($article = new \App\Article, ['url'=>'articles', 'files' => 'true']) !!}
             @include('articles.form', ['submitButtonText'=> 'Add Article'])
 
         {!! Form::close() !!}

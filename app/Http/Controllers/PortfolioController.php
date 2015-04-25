@@ -5,11 +5,15 @@ use App\Http\Controllers\Controller;
 
 use App\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class PortfolioController extends Controller {
 
+    protected $portfolio_image_path;
 
     public function __construct(){
+        $this->portfolio_image_path = "images/portfolio/";
         $this->middleware('auth',['only'=> ['create','edit']]);
     }
 	/**
@@ -36,6 +40,13 @@ class PortfolioController extends Controller {
 	 */
 	public function create()
 	{
+//        if(Session::has('image_not_uploaded'))
+//        {
+//            flash()->overlay(Session::get('image_not_uploaded'));
+//        }
+
+        //dd(session()->all());
+
         return view('portfolio-view.create');
 	}
 
@@ -47,11 +58,17 @@ class PortfolioController extends Controller {
 	public function store(Request $request)
 	{
         $this->validate($request,['title'=>'required|min:5', 'description'=>'required|min:10', 'url'=> 'url','deployed_date'=>'date']);
+        $url=$this->savePortfolioImage($request);
+        if($url)
+        {
+            $request["image_url"]=$url;
+            Portfolio::create($request->all());
+            return redirect('portfolio');
+        }
 
-        Portfolio::create($request->all());
+        flash()->overlay('image_not_uploaded','Try again to upload the image');
+        return redirect('portfolio/create');
 
-
-        return redirect('portfolio');
 	}
 
 	/**
@@ -61,10 +78,8 @@ class PortfolioController extends Controller {
 	 * @return Response
 	 */
 	public function show(Portfolio $portfolio)
-	{
-		//
-        //$portfolio = Portfolio::findOrFail($id);
-
+    {
+        //dd($portfolio);
         return view("portfolio-view.show", compact('portfolio'));
 	}
 
@@ -105,9 +120,31 @@ class PortfolioController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($article)
 	{
 		//
+        $article->delete();
+        flash()->overlay("Portfolio Deleted","Your selected portfolio is deleted successfully.");
+        return redirect('portfolio');
 	}
+
+
+    /**
+     * Saving image of the portfolio in a folder
+     *
+     * @param $url
+     */
+    public function savePortfolioImage(Request $request)
+    {
+        $portfolio_id = Portfolio::max("id");
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $extension = $file->guessClientExtension();
+            $filename = Auth::user()->id . "_portfolio_" . ($portfolio_id + 1) . "." . $extension;
+            $file->move($this->portfolio_image_path, $filename);
+            return $this->portfolio_image_path.$filename;
+        }
+        return false;
+    }
 
 }

@@ -16,8 +16,9 @@ class CreatePortfolioTable extends Migration {
 		{
 			$table->increments('id');
             $table->string('title');
-            $table->string('url')->nullable;
             $table->text('description');
+            $table->string('portfolio_url');
+            $table->string('image_url');
             $table->date('deployed_date');
 			$table->timestamp('published_at');
             $table->timestamps();

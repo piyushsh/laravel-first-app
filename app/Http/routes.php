@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('foo','FooController@foo');
 
 Route::get('/', 'WelcomeController@index');
@@ -23,8 +24,12 @@ Route::controllers([
 ]);
 
 Route::resource('articles','ArticlesController');
+Route::get('articles/delete/{article_id}','ArticlesController@destroy');
+
+Route::post('comment','CommentController@store');
 
 Route::resource('portfolio','PortfolioController');
+Route::get('portfolio/{portfolio_id}/delete','PortfolioController@destroy');
 
 //Route::get('foo',['middleware' => 'manager', function(){
 //return 'this page may only be viewed by managers only';

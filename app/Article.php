@@ -10,7 +10,7 @@ class Article extends Model {
         'title',
         'body',
         'published_at',
-        'user_id'   //Temporary
+        'image_url'
     ];
 
     protected $dates = ['published_at'];
@@ -84,6 +84,17 @@ class Article extends Model {
     public function getTagListAttribute()
     {
         return $this->tags->lists('id');
+    }
+
+
+    /**
+     * Setting the eloquent relationship between Article and comments. Articles can have many comments
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comments');
     }
 
 }

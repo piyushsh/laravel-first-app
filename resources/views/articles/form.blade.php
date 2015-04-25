@@ -9,7 +9,12 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('published_at','Body: ') !!}
+    {!! Form::label('blog_image','Blog Image: ') !!}
+    {!! Form::input('file','blog_image',null, ['class'=>'form-control']) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('published_at','Published At: ') !!}
     {!! Form::input('date','published_at',$article->published_at->format('Y-m-d'), ['class'=>'form-control']) !!}
 </div>
 

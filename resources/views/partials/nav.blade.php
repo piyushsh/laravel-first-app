@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <!--ul class="nav navbar-nav navbar-left">
-                <li>{!! link_to_action('ArticlesController@show',$latest->title, [$latest->id]) !!}</li>
+                <li> link_to_action('ArticlesController@show',$latest->title, [$latest->id]) </li>
             </ul-->
 
             <ul class="nav navbar-nav navbar-right">

@@ -6,7 +6,7 @@
         <h1>Upload your CV</h1>
         <ul>
         @foreach($errors as $error)
-            <li>{{}}</li>
+            <li>{{$error}}</li>
         @endforeach
         </ul>
         {!! Form::open(['url'=>'cv', 'enctype'=> 'multipart/form-data']) !!}

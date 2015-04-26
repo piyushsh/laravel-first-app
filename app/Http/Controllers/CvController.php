@@ -13,7 +13,7 @@ class CvController extends Controller {
 
     public function __construct()
     {
-        $this->pathToCV="/cv/";
+        $this->pathToCV="files/cv/";
         $this->fileName='piyush_cv.doc';
     }
 	/**
@@ -24,6 +24,7 @@ class CvController extends Controller {
 	public function index()
 	{
         return response()->download($this->pathToCV.$this->fileName);
+        //return view('cv.upload');
 	}
 
 	/**
@@ -43,14 +44,16 @@ class CvController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+        //dd($request);
         if($request->hasFile('cv'))
         {
             $file = $request->file('cv');
             $file->move($this->pathToCV,$this->fileName);
-            return view('cv.thanks');
+            flash()->overlay('File Uploaded','Thanks for uploading the file');
+            return redirect('cv/upload');
         }
         flash()->overlay('File was not selected','');
-        return view('cv.upload');
+        return redirect('cv/upload');
 
 	}
 

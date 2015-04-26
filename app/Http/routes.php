@@ -12,6 +12,8 @@
 */
 
 
+use App\Http\Requests\Request;
+
 Route::get('foo','FooController@foo');
 
 Route::get('/', 'WelcomeController@index');
